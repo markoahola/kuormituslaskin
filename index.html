@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Suurin sallittu kuormitus</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <h1>Kaapelien suurimmat sallitut jatkuvat kuromitusvirrat</h1>
+
+        <label for="materiaali">Materiaali:</label>
+        <select name="materiaali" id="materiaali" onchange="calculate();">
+            <option value="0">Valitse Materiaali</option>
+            <option value="kupari">Kupari</option>
+            <option value="alumiini">Alumiini</option>
+        </select>
+
+        <label for="kaapelikoko">Kaapelikoko (mm<sup>2</sup>):</label>
+        <select name="kaapelikoko" id="kaapelikoko" onchange="calculate();">
+            <option value="0">Valitse Kaapelikoko</option>
+            <option value="1.5">1.5</option>
+            <option value="2.5">2.5</option>
+            <option value="6">6</option>
+            <option value="10">10</option>
+            <option value="16">16</option>
+            <option value="25">25</option>
+            <option value="35">35</option>
+            <option value="50">50</option>
+            <option value="70">70</option>
+            <option value="95">95</option>
+            <option value="120">120</option>
+            <option value="150">150</option>
+            <option value="185">185</option>
+            <option value="240">240</option>
+            <option value="300">300</option>
+        </select>
+
+        <label for="asennustapa">Asennustapa:</label>
+        <select name="asennustapa" id="asennustapa" onchange="calculate();">
+            <option value="0">Valitse Asennustapa:</option>
+            <option value="ua">Uppoasennus</option>
+            <option value="pa">Pinta-asennus</option>
+            <option value="maa">Maa</option>
+            <option value="ilma">Ilma</option>
+        </select>
+
+        <div class="flex row">
+            <label for="kuumatila">Onko kaapeli asennettu kuumaan tilaan (yli 30<sup>o</sup>C) tai eristeen
+                sisään yli 50cm matkalla?</label>
+            <input class="checkbox" id="kuumatila" name="kuumatila" type="checkbox" onchange="calculate();">
+        </div>
+
+        <div class="tulos">
+            <p>Suurin: <span id="tulosA"></span> A</p>
+            <p>Yleinen: <span id="yleinenA"></span> A</p>
+        </div>
+
+        <div class="lisatietoa">
+            <h3>Huomioitavaa:</h3>
+            <p>Suurimmalle sallitulle kuormitusvirralle on useita eri korjauskertoimia. Esimerkiksi kuumaan tilaan
+                asennetun kaapelin korjauskertoimena käytetään 0.8.</p>
+            <p>Maan materiaali voi olla esimerkiksi soraa, multaa, hiekkaa jne ja kaikilla näillä on eri
+                lämmönjohtavuusominaisuudet.</p>
+            <p>Laskurin antamat arvot eivät välttämättä pidä aina paikkaansa.</p>
+            <p>Kuormitettavuuteen vaikuttaa paljon myös muiden johtimien läheisyys esimerkiksi kaapelihyllyllä.</p>
+        </div>
+
+    </div>
+
+    <script src="kuormitusvirrat.js"></script>
+    <script src="kuormitus.js"></script>
+</body>
+
+</html>
